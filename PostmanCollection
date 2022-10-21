@@ -1,0 +1,504 @@
+{
+	"info": {
+		"_postman_id": "9f366021-ec85-49a4-b486-b442ee84fcb9",
+		"name": "Numen-Back-Gonzalo Galarza",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21688073"
+	},
+	"item": [
+		{
+			"name": "Fibonacci Series",
+			"item": [
+				{
+					"name": "Get Fibonacci series without range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/fibonacci",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"fibonacci"
+							]
+						},
+						"description": "Devuelve los primeros 20 numeros de la serie fibonacci."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fibonacci series with limited range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/fibonacci?range=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"fibonacci"
+							],
+							"query": [
+								{
+									"key": "range",
+									"value": "10"
+								}
+							]
+						},
+						"description": "Define un rango límite por query"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fibonacci series - error test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"description": "Genera error al ingresar un rango no numérico"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "Devuelve el listado completo de usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"3"
+							]
+						},
+						"description": "Devuelve usuario específico, segun id en parámetro"
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by full name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users?nombre=Juan&apellido=Perez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Juan"
+								},
+								{
+									"key": "apellido",
+									"value": "Perez"
+								}
+							]
+						},
+						"description": "Devuelve un usuario específico por nombre y apellido insertos por query"
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by full name - error test 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users?nombre=1&apellido=Perez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "1"
+								},
+								{
+									"key": "apellido",
+									"value": "Perez"
+								}
+							]
+						},
+						"description": "Devuelve error por tipo de dato ingresado en nombre"
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by full name - error test 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users?nombre=Jua&apellido=Perez",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Jua"
+								},
+								{
+									"key": "apellido",
+									"value": "Perez"
+								}
+							]
+						},
+						"description": "Devuelve usuario no encontrado por nombre mal escrito"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert a new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nombre\": \"Maria\",\r\n        \"apellido\": \"Bailaba\",\r\n        \"dni\": 12345678\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "Inserta un nuevo usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert a new user - Id+",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nombre\": \"Juancito\",\r\n        \"apellido\": \"Alegre\",\r\n        \"dni\": 12345678\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "Inserta un nuevo usuario. Se ejecuta para corroborar que el id incremente automáticamente"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert a new user - Ignora Id Body",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {   \"id\": 10,\r\n        \"nombre\": \"Prueba\",\r\n        \"apellido\": \"Probador\",\r\n        \"dni\": \"12345678\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "Inserta un nuevo usuario, ignorando el Id que se envía por el body. El id, se aumenta teniendo en cuenta el mayor existente en el array Users + 1"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert a new user - error test 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"apellido\": \"Solari\",\r\n        \"dni\": 12345678\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "Prueba validación de inexistencia de datos requeridos. En este caso el nombre"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert a new user - error test 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nombre\": \"Sergio\",\r\n        \"apellido\": \"Garcia\",\r\n        \"dni\": \"cadena\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "Prueba validación por tipo de datos no válidos. El Dni debe ser numérico"
+					},
+					"response": []
+				},
+				{
+					"name": "Update user by Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nombre\": \"Actuali\",\r\n        \"apellido\": \"zado\",\r\n        \"dni\": 12345678\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"3"
+							]
+						},
+						"description": "Actualiza usuario, tomando id por parámetro"
+					},
+					"response": []
+				},
+				{
+					"name": "Update user by Id - error test 1",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nombre\": \"Actuali\",\r\n        \"apellido\": \"zado\",\r\n        \"dni\": 12345678\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"20"
+							]
+						},
+						"description": "No actualiza usuario ya que el id no está disponible en el array users"
+					},
+					"response": []
+				},
+				{
+					"name": "Update user by Id - error test 2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"nombre\": \"Actuali\",\r\n        \"apellido\": \"zado\",\r\n        \"dni\": 12345678\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"b"
+							]
+						},
+						"description": "Valida que el id ingresado por parámetro sea del tipo numérico"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2"
+							]
+						},
+						"description": "Elimina el usuario indicado por id en parámetro"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by Id - error test 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/20",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"20"
+							]
+						},
+						"description": "No elimina el usuario, ya que no encuentra coincidencia de id enviado y existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by Id - error test 2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"a"
+							]
+						},
+						"description": "Valida que el tipo de Id ingresado sea de tipo numérico"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
